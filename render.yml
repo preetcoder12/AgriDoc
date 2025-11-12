@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: crop-cure-app
+    name: agridoc-app
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn main_app:app

@@ -1,0 +1,386 @@
+{% extends 'base.html' %} 
+{% block pagetitle %}About Us - AgriDoc{% endblock pagetitle %} 
+
+{% block body %}
+<style>
+  :root {
+    --primary-color: #2c6e49;
+    --secondary-color: #4c956c;
+    --accent-color: #fefee3;
+    --text-color: #233d4d;
+    --light-bg: #f8f9fa;
+  }
+
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: #f5f7f9;
+  }
+
+  .hero-section {
+    background: linear-gradient(
+      135deg,
+      var(--primary-color),
+      var(--secondary-color)
+    );
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-weight: 400;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .content-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .content-card h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .content-card h4 {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-card p {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .feature-list li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .feature-list li::before {
+    content: "🌱";
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+  }
+
+  .stats-section {
+    background: linear-gradient(
+      135deg,
+      var(--primary-color),
+      var(--secondary-color)
+    );
+    color: white;
+    padding: 3rem 0;
+    border-radius: 15px;
+    margin: 2rem 0;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .team-section {
+    margin-top: 2rem;
+  }
+
+  .team-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 2rem;
+  }
+
+  .team-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .team-icon {
+    font-size: 4rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+  }
+
+  .tech-badge {
+    display: inline-block;
+    background-color: rgba(76, 149, 108, 0.15);
+    color: var(--primary-color);
+    border-radius: 30px;
+    padding: 0.5rem 1.2rem;
+    margin: 0.3rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .content-card {
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="container text-center">
+    <h1 class="hero-title">
+      <i class="fas fa-info-circle"></i> About AgriDoc
+    </h1>
+    <p class="hero-subtitle">
+      Revolutionizing plant disease detection through artificial intelligence
+    </p>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+  <!-- Mission Section -->
+  <div class="content-card">
+    <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+    <p>
+      AgriDoc is dedicated to helping farmers and gardeners protect their crops 
+      by providing fast, accurate, and accessible plant disease detection. We believe 
+      that early detection is the key to preventing crop loss and ensuring food security 
+      for communities worldwide.
+    </p>
+    <p>
+      Our mission is to democratize access to advanced agricultural technology, making 
+      it available to everyone from small-scale gardeners to large commercial farms.
+    </p>
+  </div>
+
+  <!-- What We Do Section -->
+  <div class="content-card">
+    <h3><i class="fas fa-seedling"></i> What We Do</h3>
+    <p>
+      AgriDoc uses state-of-the-art deep learning and computer vision technology 
+      to identify plant diseases from images. Simply upload a photo of your plant's 
+      leaves, and our AI engine will analyze it to detect potential diseases or health issues.
+    </p>
+    
+    <h4>Key Features:</h4>
+    <ul class="feature-list">
+      <li><strong>Fast Detection:</strong> Get results in seconds, not days</li>
+      <li><strong>High Accuracy:</strong> Powered by advanced CNN (Convolutional Neural Network) models</li>
+      <li><strong>Multiple Plant Support:</strong> Detects diseases across 14+ different plant species</li>
+      <li><strong>Detailed Information:</strong> Provides disease descriptions and treatment recommendations</li>
+      <li><strong>Supplement Recommendations:</strong> Suggests appropriate supplements and fertilizers</li>
+      <li><strong>Easy to Use:</strong> No technical knowledge required - just upload and analyze</li>
+    </ul>
+  </div>
+
+  <!-- Technology Section -->
+  <div class="content-card">
+    <h3><i class="fas fa-microchip"></i> Our Technology</h3>
+    <p>
+      AgriDoc is built using cutting-edge machine learning technologies:
+    </p>
+    <div class="text-center" style="margin: 2rem 0;">
+      <span class="tech-badge"><i class="fas fa-brain"></i> Deep Learning</span>
+      <span class="tech-badge"><i class="fas fa-eye"></i> Computer Vision</span>
+      <span class="tech-badge"><i class="fas fa-network-wired"></i> CNN Architecture</span>
+      <span class="tech-badge"><i class="fab fa-python"></i> Python & PyTorch</span>
+      <span class="tech-badge"><i class="fas fa-cloud"></i> Cloud-Based</span>
+    </div>
+    <p>
+      Our model has been trained on thousands of images of healthy and diseased plants, 
+      enabling it to recognize patterns and symptoms that might be invisible to the 
+      untrained eye. The system continuously learns and improves to provide better 
+      accuracy over time.
+    </p>
+  </div>
+
+  <!-- Supported Plants Section -->
+  <div class="content-card">
+    <h3><i class="fas fa-leaf"></i> Supported Plants</h3>
+    <p>
+      AgriDoc can detect diseases in the following plants:
+    </p>
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="feature-list">
+          <li>Apple</li>
+          <li>Blueberry</li>
+          <li>Cherry</li>
+          <li>Corn</li>
+          <li>Grape</li>
+          <li>Orange</li>
+          <li>Peach</li>
+          <li>Pepper Bell</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="feature-list">
+          <li>Potato</li>
+          <li>Raspberry</li>
+          <li>Soybean</li>
+          <li>Squash</li>
+          <li>Strawberry</li>
+          <li>Tomato</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <div class="stat-item">
+            <div class="stat-number">14+</div>
+            <div class="stat-label">Plant Species</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="stat-item">
+            <div class="stat-number">39+</div>
+            <div class="stat-label">Disease Types</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Free Access</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Available</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Benefits Section -->
+  <div class="content-card">
+    <h3><i class="fas fa-heart"></i> Why Choose AgriDoc?</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h4><i class="fas fa-dollar-sign"></i> Cost-Effective</h4>
+        <p>
+          Save money on expensive laboratory tests and consultations. Get instant 
+          disease detection at no cost.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h4><i class="fas fa-clock"></i> Time-Saving</h4>
+        <p>
+          No need to wait for expert appointments. Get immediate results and start 
+          treatment right away.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h4><i class="fas fa-globe"></i> Accessible</h4>
+        <p>
+          Available to anyone with internet access. No special equipment or training required.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h4><i class="fas fa-shield-alt"></i> Preventive Care</h4>
+        <p>
+          Early detection helps prevent disease spread and reduces crop loss significantly.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Section -->
+  <div class="content-card team-section">
+    <h3><i class="fas fa-users"></i> About the Creator</h3>
+    <div class="team-card">
+      <div class="team-icon">
+        <i class="fas fa-user-graduate"></i>
+      </div>
+      <h4>Ritesh</h4>
+      <p>
+        AgriDoc was developed as a final year project to address the critical need 
+        for accessible plant disease detection tools. The project combines expertise 
+        in machine learning, computer vision, and web development to create a 
+        comprehensive solution for farmers and gardeners.
+      </p>
+      <p>
+        Our goal is to make advanced agricultural technology accessible to everyone, 
+        helping to improve crop yields and food security worldwide.
+      </p>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="content-card text-center" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white;">
+    <h3 style="color: white; border-bottom: 3px solid rgba(255,255,255,0.3);">
+      <i class="fas fa-rocket"></i> Ready to Get Started?
+    </h3>
+    <p style="font-size: 1.1rem; margin: 1.5rem 0;">
+      Start protecting your crops today with AgriDoc
+    </p>
+    <a href="/index" class="btn btn-light btn-lg" style="margin: 0.5rem;">
+      <i class="fas fa-microscope"></i> Try AI Engine
+    </a>
+    <a href="/contact" class="btn btn-outline-light btn-lg" style="margin: 0.5rem;">
+      <i class="fas fa-envelope"></i> Contact Us
+    </a>
+  </div>
+</div>
+{% endblock body %}
+

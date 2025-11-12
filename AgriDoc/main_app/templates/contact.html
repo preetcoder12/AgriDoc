@@ -1,0 +1,454 @@
+{% extends 'base.html' %} 
+{% block pagetitle %}Contact Us - AgriDoc{% endblock pagetitle %} 
+
+{% block body %}
+<style>
+  :root {
+    --primary-color: #2c6e49;
+    --secondary-color: #4c956c;
+    --accent-color: #fefee3;
+    --text-color: #233d4d;
+    --light-bg: #f8f9fa;
+  }
+
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: #f5f7f9;
+  }
+
+  .hero-section {
+    background: linear-gradient(
+      135deg,
+      var(--primary-color),
+      var(--secondary-color)
+    );
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-weight: 400;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contact-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .contact-card h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .contact-form {
+    margin-top: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-label {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(76, 149, 108, 0.25);
+  }
+
+  .btn-submit {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  .btn-submit:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .contact-info-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    height: 100%;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .contact-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-right: 1.5rem;
+    min-width: 50px;
+    text-align: center;
+  }
+
+  .contact-details h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-details p {
+    color: var(--text-color);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  .social-links {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .social-link {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .social-link:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+    color: white;
+  }
+
+  .info-section {
+    background: linear-gradient(
+      135deg,
+      rgba(44, 110, 73, 0.1),
+      rgba(76, 149, 108, 0.1)
+    );
+    border-left: 4px solid var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin: 2rem 0;
+  }
+
+  .info-section h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .info-section p {
+    color: var(--text-color);
+    margin-bottom: 0;
+    line-height: 1.8;
+  }
+
+  .alert {
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .alert-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .contact-card {
+      padding: 1.5rem;
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+  }
+</style>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="container text-center">
+    <h1 class="hero-title">
+      <i class="fas fa-envelope"></i> Contact Us
+    </h1>
+    <p class="hero-subtitle">
+      Have questions or feedback? We'd love to hear from you!
+    </p>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <!-- Contact Form -->
+    <div class="col-lg-8">
+      <div class="contact-card">
+        <h3><i class="fas fa-paper-plane"></i> Send us a Message</h3>
+        {% if success %}
+        <div class="alert alert-success" role="alert">
+          <i class="fas fa-check-circle"></i> {{ message }}
+        </div>
+        {% endif %}
+        <form class="contact-form" id="contactForm" method="POST" action="/contact">
+          <div class="form-group">
+            <label for="name" class="form-label">
+              <i class="fas fa-user"></i> Your Name
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">
+              <i class="fas fa-envelope"></i> Email Address
+            </label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="your.email@example.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">
+              <i class="fas fa-tag"></i> Subject
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="subject"
+              name="subject"
+              placeholder="What is this regarding?"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">
+              <i class="fas fa-comment"></i> Message
+            </label>
+            <textarea
+              class="form-control"
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Tell us what's on your mind..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-submit">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Additional Info -->
+      <div class="info-section">
+        <h5><i class="fas fa-info-circle"></i> What can we help you with?</h5>
+        <p>
+          Whether you have questions about using AgriDoc, need technical support, 
+          want to report a bug, or have suggestions for improvement, we're here to help. 
+          We typically respond within 24-48 hours.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="col-lg-4">
+      <div class="contact-info-card">
+        <h3><i class="fas fa-address-card"></i> Get in Touch</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h5>Email</h5>
+            <p>support@agridoc.com</p>
+            <p style="font-size: 0.9rem; color: #666;">
+              For general inquiries and support
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-bug"></i>
+          </div>
+          <div class="contact-details">
+            <h5>Report Issues</h5>
+            <p>bugs@agridoc.com</p>
+            <p style="font-size: 0.9rem; color: #666;">
+              Found a bug? Let us know!
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="contact-details">
+            <h5>Suggestions</h5>
+            <p>feedback@agridoc.com</p>
+            <p style="font-size: 0.9rem; color: #666;">
+              We value your ideas and feedback
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="contact-details">
+            <h5>Response Time</h5>
+            <p>24-48 hours</p>
+            <p style="font-size: 0.9rem; color: #666;">
+              We aim to respond as quickly as possible
+            </p>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <h5 style="color: var(--primary-color); margin-bottom: 1rem;">
+            Follow Us
+          </h5>
+          <a href="#" class="social-link" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-link" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-link" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="social-link" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- FAQ Quick Link -->
+      <div class="contact-info-card">
+        <h3 style="font-size: 1.3rem;">
+          <i class="fas fa-question-circle"></i> Frequently Asked Questions
+        </h3>
+        <p style="margin-bottom: 1rem;">
+          Before contacting us, you might find answers to common questions in our FAQ section.
+        </p>
+        <a href="/about" class="btn btn-submit" style="width: 100%;">
+          <i class="fas fa-book"></i> Learn More About Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+  // Form submission handling - client-side validation
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // Get form data
+    const formData = new FormData(this);
+    
+    // Simple client-side validation
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+    
+    if (!name || !email || !subject || !message) {
+      e.preventDefault();
+      alert('Please fill in all fields');
+      return false;
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      e.preventDefault();
+      alert('Please enter a valid email address');
+      return false;
+    }
+    
+    // If validation passes, allow form to submit normally
+    return true;
+  });
+</script>
+{% endblock body %}
+
