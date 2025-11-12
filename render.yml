@@ -3,9 +3,9 @@ services:
     name: agridoc-app
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn main_app:app
+    startCommand: cd AgriDoc/main_app && gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: PYTHONPATH
-        value: /opt/render/project/src
+        value: /opt/render/project/src/AgriDoc/main_app
       - key: PYTHONUNBUFFERED
         value: 1
